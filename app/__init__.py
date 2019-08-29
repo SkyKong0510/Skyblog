@@ -2,9 +2,12 @@ from flask import Flask
 from config import Config#从config模块导入Config类
 from flask_sqlalchemy import SQLAlchemy#从包中导入类
 from flask_migrate import Migrate
+from flask_login import LoginManager
 
 app = Flask(__name__)
 app.config.from_object(Config)
+login = LoginManager(app)
+login.login_view = 'login'
 
 db = SQLAlchemy(app)#数据库对象
 migrate = Migrate(app, db)#迁移引擎对象
