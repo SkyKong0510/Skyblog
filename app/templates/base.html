@@ -7,6 +7,7 @@
         {% endif %}
     </head>
     <body>
+<<<<<<< HEAD
         <div>
         Microblog:
          <a href="{{ url_for('index') }}">Home</a>
@@ -17,6 +18,12 @@
                 <a href="{{ url_for('logout') }}">Logout</a>
             {% endif %}
     </div>
+=======
+        <div>Microblog:
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('login') }}">Login</a>
+        </div>
+>>>>>>> origin/master
         <hr>
         {% with messages = get_flashed_messages() %}
         {% if messages %}

@@ -1,9 +1,15 @@
+<<<<<<< HEAD
 from app import app,db
 from werkzeug.urls import url_parse
 from app.form import RegistrationForm
 from flask import render_template, flash, redirect, url_for, request
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User
+=======
+from app import app
+from flask import render_template, flash, redirect, url_for
+
+>>>>>>> origin/master
 from app.form import LoginForm
 
 
@@ -21,6 +27,7 @@ def index():
         'body': 'The Avengers movie was so cool!'
     }
     ]
+<<<<<<< HEAD
     return render_template('index.html',title="Home", posts=posts)
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -68,3 +75,14 @@ def user(username):
         {'author':user, 'body':'Test post #2'}
     ]
     return render_template('user.html', user=user, posts=posts)
+=======
+    return render_template('index.html',title = "Home",user = user,posts = posts)
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    form = LoginForm()#表单实例化对象
+    if form.validate_on_submit():
+        flash('Login requested for user {},remember_me={}'.format(form.username.data, form.remember_me.data))
+        return redirect(url_for('/index'))
+    return render_template('login.html', title='Sign In', form=form)
+>>>>>>> origin/master

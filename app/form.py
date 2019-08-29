@@ -1,12 +1,17 @@
 from flask_wtf import FlaskForm#从flask_wtf包中导入FlaskForm类
 from wtforms import StringField,PasswordField,BooleanField,SubmitField#导入这些类
+<<<<<<< HEAD
 from wtforms.validators import DataRequired, ValidationError, EqualTo, Email
 from app.models import User
+=======
+from wtforms.validators import DataRequired
+>>>>>>> origin/master
 
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
     remember_me = BooleanField('Remember Me')
+<<<<<<< HEAD
     submit = SubmitField('Sign In')
 
 class RegistrationForm(FlaskForm):
@@ -26,3 +31,6 @@ class RegistrationForm(FlaskForm):
         user = User.query.filter_by(email=email.data).first()
         if user is not None:
             raise ValidationError('Please use a different email address.')
+=======
+    submit = SubmitField('Sign In')
+>>>>>>> origin/master
